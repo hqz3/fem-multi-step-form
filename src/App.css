@@ -1,7 +1,12 @@
 #root {
   background-color: var(--magnolia);
-  font-size: 1.6rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-family: "Ubuntu", sans-serif;
+  font-size: 1.6rem;
   margin: 0 auto;
   max-width: var(--desktop-screen);
   min-height: 100vh;

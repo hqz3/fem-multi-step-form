@@ -1,4 +1,19 @@
 .container {
-  background-color: lightblue;
+  border: 1px solid lightblue;
   grid-row: 1/11;
+  grid-column: 2/3;
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    background-color: white;
+    border-radius: 0.8rem;
+
+    margin: 0 auto;
+    transform: translateY(-4.5rem);
+
+    width: 92%;
+    z-index: 10;
+  }
 }

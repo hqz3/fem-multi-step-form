@@ -1,7 +1,7 @@
 .steps__container {
   background-image: url("../assets/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
-  border-radius: 0.8rem;
+  border-radius: 0.6rem;
   color: var(--white);
 
   display: flex;

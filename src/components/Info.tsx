@@ -1,15 +1,34 @@
+import { useFormContext } from "../context/useFormContext";
 import style from "../styles/Info.module.css";
 
 export const Info = () => {
+  const { name, setName, email, setEmail, phone, setPhone } = useFormContext();
+
   const inputs = [
-    { label: "Name", type: "text", placeholder: "e.g. Stephen King" },
     {
+      value: name,
+      setState: setName,
+      label: "Name",
+      type: "text",
+      placeholder: "e.g. Stephen King",
+    },
+    {
+      value: email,
+      setState: setEmail,
       label: "Email Address",
       type: "email",
       placeholder: "e.g. stephenking@lorem.com",
     },
-    { label: "Phone Number", type: "tel", placeholder: "e.g. +1 234 567 890" },
+    {
+      value: phone,
+      setState: setPhone,
+      label: "Phone Number",
+      type: "tel",
+      placeholder: "e.g. +1 234 567 890",
+    },
   ];
+
+  /* <span className={style.error__message}>This field is required</span> */
 
   return (
     <section className={style.info}>
@@ -21,8 +40,14 @@ export const Info = () => {
         {inputs.map((input) => (
           <label key={input.label}>
             {input.label}
-            {/* <span className={style.error__message}>This field is required</span> */}
-            <input type={input.type} placeholder={input.placeholder} />
+            <input
+              type={input.type}
+              placeholder={input.placeholder}
+              value={input.value}
+              onChange={(e) => {
+                input.setState(e.target.value);
+              }}
+            />
           </label>
         ))}
       </form>

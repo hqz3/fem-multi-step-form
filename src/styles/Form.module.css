@@ -2,7 +2,9 @@
   border: 1px solid lightblue;
   grid-row: 1/11;
   grid-column: 2/3;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 4.5rem;
 }
 
 @media (max-width: 768px) {
@@ -11,8 +13,8 @@
     border-radius: 0.8rem;
 
     margin: 0 auto;
+    padding: 1.5rem;
     transform: translateY(-4.5rem);
-
     width: 92%;
     z-index: 10;
   }

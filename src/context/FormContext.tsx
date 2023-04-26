@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
 
-export type ErrorType = {
-  index: number | null;
+export interface ErrorInterface {
+  label: string | null;
   message: string;
-};
+}
 
 export interface FormContextInterface {
   currentStep: number;
@@ -14,8 +14,8 @@ export interface FormContextInterface {
   setEmail: React.Dispatch<React.SetStateAction<string>>;
   phone: string;
   setPhone: React.Dispatch<React.SetStateAction<string>>;
-  error: ErrorType;
-  setError: React.Dispatch<React.SetStateAction<ErrorType>>;
+  error: ErrorInterface;
+  setError: React.Dispatch<React.SetStateAction<ErrorInterface>>;
 }
 
 export const FormContext = createContext<FormContextInterface>({
@@ -27,7 +27,7 @@ export const FormContext = createContext<FormContextInterface>({
   setEmail: () => undefined,
   phone: "",
   setPhone: () => undefined,
-  error: { index: null, message: "" },
+  error: { label: null, message: "" },
   setError: () => undefined,
 });
 
@@ -40,7 +40,10 @@ export const FormContextProvider = ({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [error, setError] = useState<ErrorType>({ index: null, message: "" });
+  const [error, setError] = useState<ErrorInterface>({
+    label: null,
+    message: "",
+  });
 
   const value = {
     currentStep,

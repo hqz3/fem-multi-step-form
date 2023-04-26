@@ -1,8 +1,11 @@
 import { useFormContext } from "../context/useFormContext";
+import { validateInfoForm } from "../utils/validateInfoForm";
+
 import style from "../styles/Navigation.module.css";
 
 export const Navigation = () => {
-  const { currentStep, setCurrentStep } = useFormContext();
+  const { currentStep, setCurrentStep, name, email, phone, setError } =
+    useFormContext();
 
   const handleBackClick = () => {
     setCurrentStep(currentStep - 1);
@@ -10,7 +13,11 @@ export const Navigation = () => {
 
   const handleNextClick = () => {
     if (currentStep === 0) {
-      // Validate form
+      const { label, message } = validateInfoForm(name, email, phone);
+      if (label) {
+        setError({ label, message });
+        return;
+      }
     }
     if (currentStep === 4) return;
     setCurrentStep(currentStep + 1);

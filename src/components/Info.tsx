@@ -1,34 +1,34 @@
 import { useFormContext } from "../context/useFormContext";
+import { infoFormLabels } from "../utils/validateInfoForm";
 import style from "../styles/Info.module.css";
 
 export const Info = () => {
-  const { name, setName, email, setEmail, phone, setPhone } = useFormContext();
+  const { name, setName, email, setEmail, phone, setPhone, error, setError } =
+    useFormContext();
 
   const inputs = [
     {
       value: name,
       setState: setName,
-      label: "Name",
+      label: infoFormLabels.name,
       type: "text",
       placeholder: "e.g. Stephen King",
     },
     {
       value: email,
       setState: setEmail,
-      label: "Email Address",
+      label: infoFormLabels.email,
       type: "email",
       placeholder: "e.g. stephenking@lorem.com",
     },
     {
       value: phone,
       setState: setPhone,
-      label: "Phone Number",
+      label: infoFormLabels.phone,
       type: "tel",
       placeholder: "e.g. +1 234 567 890",
     },
   ];
-
-  /* <span className={style.error__message}>This field is required</span> */
 
   return (
     <section className={style.info}>
@@ -40,12 +40,21 @@ export const Info = () => {
         {inputs.map((input) => (
           <label key={input.label}>
             {input.label}
+            {error.label === input.label && (
+              <span className={style.error__message}>{error.message}</span>
+            )}
             <input
+              className={
+                error.label === input.label ? style.error__outline : ""
+              }
               type={input.type}
               placeholder={input.placeholder}
               value={input.value}
               onChange={(e) => {
                 input.setState(e.target.value);
+                if (error.label === input.label) {
+                  setError({ label: null, message: "" });
+                }
               }}
             />
           </label>

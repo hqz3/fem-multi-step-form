@@ -3,17 +3,21 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   font-size: 1rem;
   grid-row: 11/13;
   grid-column: 2/3;
-  padding: 0 4.5rem;
+
+  position: relative;
 }
 
 .navigation__back {
   color: var(--cool-gray);
   cursor: pointer;
+
+  position: absolute;
+  left: 4.5rem;
+
   text-decoration: none;
   transition: filter 0.25s;
 }
@@ -31,8 +35,11 @@
   font-family: inherit;
   font-size: 1rem;
   height: 3rem;
+  width: 7.6rem;
+
+  position: absolute;
+  right: 4.5rem;
   transition: background-color 0.25s;
-  width: 8rem;
 }
 
 .navigation__button:active {
@@ -53,5 +60,17 @@
     left: 0;
 
     z-index: 10;
+  }
+
+  .navigation__back {
+    left: 1rem;
+  }
+
+  .navigation__button {
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    height: 2.75rem;
+    width: 6.5rem;
+    right: 1rem;
   }
 }

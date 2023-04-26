@@ -1,3 +1,4 @@
+import { useFormContext } from "../context/useFormContext";
 import style from "../styles/Sidebar.module.css";
 
 interface StepInterface {
@@ -14,6 +15,8 @@ export const Sidebar = () => {
     { number: 4, title: "Step 4", description: "Summary" },
   ];
 
+  const { currentStep } = useFormContext();
+
   return (
     <div className={style.steps__container}>
       {steps.map((step: StepInterface, index: number) => {
@@ -21,7 +24,7 @@ export const Sidebar = () => {
           <ol className={style.step__container} key={step.number}>
             <li
               className={`${style.step__number} ${
-                index === 0 ? style.step__selected : ""
+                index === currentStep ? style.step__selected : ""
               }`}
             >
               {step.number}

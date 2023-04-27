@@ -46,7 +46,7 @@
 
 .billing__container {
   background-color: var(--magnolia);
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
 
   display: flex;
   align-items: center;

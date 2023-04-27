@@ -1,0 +1,43 @@
+.addOn__container {
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-gray);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  height: 4.25rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.addOn__container:first-of-type {
+  margin-top: 2rem;
+}
+
+.addOn__containerSelected {
+  background-color: var(--magnolia);
+  outline: 1px solid var(--purplish-blue);
+}
+
+.addOn__details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.addOn__name {
+  font-weight: 500;
+}
+
+.addOn__description {
+  color: var(--cool-gray);
+  font-size: 0.8rem;
+}
+
+.addOn__price {
+  font-size: 0.8rem;
+  color: var(--purplish-blue);
+}

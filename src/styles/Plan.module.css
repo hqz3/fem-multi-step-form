@@ -23,6 +23,7 @@
 .plan__container:hover,
 .plan__containerSelected {
   background-color: var(--magnolia);
+  transition: background-color 0.25s;
 }
 
 .plan__containerSelected {

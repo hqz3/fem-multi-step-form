@@ -18,7 +18,7 @@ export const generateSubscriptionPrice = (term: string) => {
         [addOnName.largerStorage]: 2,
         [addOnName.customProfile]: 2,
       };
-    case subscriptionTerm.yearly:
+    default:
       return {
         term: "yr",
         [planName.arcade]: 90,

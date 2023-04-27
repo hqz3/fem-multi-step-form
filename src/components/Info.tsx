@@ -31,7 +31,7 @@ export const Info = () => {
   ];
 
   return (
-    <section className={style.info}>
+    <section>
       <h1 className="form__title">Personal info</h1>
       <p className="form__description">
         Please provide your name, email address, and phone number.

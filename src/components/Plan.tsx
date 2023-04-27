@@ -20,7 +20,7 @@ export const Plan = () => {
   ];
 
   return (
-    <form className={style.plans}>
+    <section>
       <h1 className="form__title">Select your plan</h1>
       <p className="form__description">
         You have the option of monthly or yearly billing.
@@ -84,6 +84,6 @@ export const Plan = () => {
           Yearly
         </span>
       </div>
-    </form>
+    </section>
   );
 };

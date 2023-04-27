@@ -1,9 +1,3 @@
-.plans {
-  font-size: 1rem;
-  top: 0;
-  left: 0;
-}
-
 .plans__container {
   display: flex;
   justify-content: space-between;

@@ -1,0 +1,128 @@
+.plans {
+  font-size: 1rem;
+  top: 0;
+  left: 0;
+}
+
+.plans__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2.4rem;
+  width: 100%;
+}
+
+.plan__container {
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-gray);
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+}
+
+.plan__container:hover,
+.plan__containerSelected {
+  background-color: var(--magnolia);
+}
+
+.plan__containerSelected {
+  outline: 1px solid blue;
+}
+
+.plan__logo {
+  max-width: 2.5rem;
+}
+
+.plan__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 3.5rem;
+}
+
+.plan__price {
+  color: var(--cool-gray);
+  font-size: 0.8rem;
+}
+
+.plan__discount {
+  font-size: 0.8rem;
+}
+
+.billing__container {
+  background-color: var(--magnolia);
+  border-radius: 0.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+  height: 3rem;
+  margin-top: 2rem;
+}
+
+.billing__monthly,
+.billing__yearly {
+  color: var(--cool-gray);
+}
+
+.billing__sliderContainer {
+  height: 50%;
+}
+
+.billing__slider {
+  appearance: none;
+  background-color: #02295a;
+  border-radius: 2rem;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  width: 3rem;
+}
+
+.billing__slider::before {
+  content: "";
+  background-color: var(--white);
+  border-radius: 2rem;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+
+  transform: scale(0.75);
+  width: 1.5rem;
+}
+
+.billing__slider:checked::before {
+  right: 0;
+}
+
+.billing__selected {
+  color: #02295a;
+}
+
+@media (max-width: 425px) {
+  .plans__container {
+    flex-direction: column;
+  }
+
+  .plan__container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .plan__details {
+    margin: 0;
+  }
+
+  .plan__title {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .plan__price,
+  .plan__discount {
+    font-size: 1rem;
+  }
+}

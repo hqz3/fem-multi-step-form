@@ -30,3 +30,13 @@
 .html {
   font-size: 10px;
 }
+
+.form__title {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.form__description {
+  color: var(--cool-gray);
+  margin-top: 0.75rem;
+}

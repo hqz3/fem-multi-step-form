@@ -44,7 +44,7 @@
   font-size: 0.8rem;
 }
 
-.billing__container {
+.subscription__container {
   background-color: var(--magnolia);
   border-radius: 0.5rem;
 
@@ -57,16 +57,16 @@
   margin-top: 2rem;
 }
 
-.billing__monthly,
-.billing__yearly {
+.subscription__monthly,
+.subscription__yearly {
   color: var(--cool-gray);
 }
 
-.billing__sliderContainer {
+.subscription__sliderContainer {
   height: 50%;
 }
 
-.billing__slider {
+.subscription__slider {
   appearance: none;
   background-color: #02295a;
   border-radius: 2rem;
@@ -76,7 +76,7 @@
   width: 3rem;
 }
 
-.billing__slider::before {
+.subscription__slider::before {
   content: "";
   background-color: var(--white);
   border-radius: 2rem;
@@ -89,11 +89,11 @@
   width: 1.5rem;
 }
 
-.billing__slider:checked::before {
+.subscription__slider:checked::before {
   right: 0;
 }
 
-.billing__selected {
+.subscription__selected {
   color: #02295a;
 }
 

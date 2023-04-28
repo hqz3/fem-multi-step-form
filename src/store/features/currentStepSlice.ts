@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type Step = {
   currentStep: number;
 };
 
-const initialState: Step = { currentStep: 0 };
+const initialState: Step = { currentStep: 1 };
 
 export const currentStepSlice = createSlice({
   name: "currentStep",
@@ -16,7 +16,11 @@ export const currentStepSlice = createSlice({
     decrementStep: (state) => {
       state.currentStep -= 1;
     },
+    setStep: (state, action: PayloadAction<number>) => {
+      state.currentStep = action.payload;
+    },
   },
 });
 
-export const { incrementStep, decrementStep } = currentStepSlice.actions;
+export const { incrementStep, decrementStep, setStep } =
+  currentStepSlice.actions;

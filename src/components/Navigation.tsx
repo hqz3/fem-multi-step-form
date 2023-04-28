@@ -1,26 +1,34 @@
-import { useFormContext } from "../context/useFormContext";
-import { validateInfoForm } from "../utils/validateInfoForm";
+import { useDispatch, useSelector } from "react-redux";
+// Redux actions
+import {
+  decrementStep,
+  incrementStep,
+} from "../store/features/currentStepSlice";
+import { setError } from "../store/features/formSlice";
+// Redux selectors
+import { selectCurrentStep, selectForm } from "../store";
 
+import { validateInfoForm } from "../utils/validateInfoForm";
 import style from "../styles/Navigation.module.css";
 
 export const Navigation = () => {
-  const { currentStep, setCurrentStep, name, email, phone, setError } =
-    useFormContext();
+  const dispatch = useDispatch();
+  const { currentStep } = useSelector(selectCurrentStep);
+  const { name, email, phone } = useSelector(selectForm);
 
   const handleBackClick = () => {
-    setCurrentStep(currentStep - 1);
+    dispatch(decrementStep());
   };
 
   const handleNextClick = () => {
     if (currentStep === 0) {
       const { label, message } = validateInfoForm(name, email, phone);
       if (label) {
-        setError({ label, message });
-        return;
+        return dispatch(setError({ label, message }));
       }
     }
     if (currentStep === 4) return;
-    setCurrentStep(currentStep + 1);
+    dispatch(incrementStep());
   };
 
   return (

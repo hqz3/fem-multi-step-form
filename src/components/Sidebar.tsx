@@ -1,25 +1,25 @@
-import { useFormContext } from "../context/useFormContext";
+import { useSelector } from "react-redux";
+import { selectCurrentStep } from "../store";
 import style from "../styles/Sidebar.module.css";
 
-interface StepInterface {
+type StepType = {
   number: number;
   title: string;
   description: string;
-}
+};
 
 export const Sidebar = () => {
-  const steps: StepInterface[] = [
+  const { currentStep } = useSelector(selectCurrentStep);
+  const steps: StepType[] = [
     { number: 1, title: "Step 1", description: "Your info" },
     { number: 2, title: "Step 2", description: "Select plan" },
     { number: 3, title: "Step 3", description: "Add-ons" },
     { number: 4, title: "Step 4", description: "Summary" },
   ];
 
-  const { currentStep } = useFormContext();
-
   return (
     <div className={style.steps__container}>
-      {steps.map((step: StepInterface, index: number) => {
+      {steps.map((step, index) => {
         return (
           <ol className={style.step__container} key={step.number}>
             <li

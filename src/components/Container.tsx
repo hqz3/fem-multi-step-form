@@ -2,9 +2,8 @@ import { Sidebar } from "./Sidebar";
 import { Form } from "./Form";
 import { Navigation } from "./Navigation";
 
-import { FormContextProvider } from "../context/FormContext";
-
 import style from "../styles/Container.module.css";
+import { FormContextProvider } from "../context/FormContext";
 
 export const Container = () => {
   return (

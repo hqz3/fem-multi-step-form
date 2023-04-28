@@ -1,4 +1,12 @@
-import { useFormContext } from "../context/useFormContext";
+import { useDispatch, useSelector } from "react-redux";
+// Redux actions
+import {
+  setCurrentPlan,
+  setCurrentSubscriptionTerm,
+} from "../store/features/currentPlanSlice";
+// Redux selectors
+import { selectCurrentPlan } from "../store";
+
 import { planName } from "../utils/planName";
 import {
   subscriptionTerm,
@@ -8,10 +16,11 @@ import {
 import style from "../styles/Plan.module.css";
 
 export const Plan = () => {
-  const { currentPlan, setCurrentPlan, currentTerm, setCurrentTerm } =
-    useFormContext();
+  const dispatch = useDispatch();
+  const { currentPlan, currentSubscriptionTerm } =
+    useSelector(selectCurrentPlan);
 
-  const prices = generateSubscriptionPrice(currentTerm);
+  const prices = generateSubscriptionPrice(currentSubscriptionTerm);
 
   const plans = [
     { name: planName.arcade, imgSrc: "icon-arcade.svg" },
@@ -32,7 +41,7 @@ export const Plan = () => {
             className={`${style.plan__container} ${
               currentPlan === plan.name ? style.plan__containerSelected : ""
             }`}
-            onClick={() => setCurrentPlan(plan.name)}
+            onClick={() => dispatch(setCurrentPlan(plan.name))}
           >
             <img
               className={style.plan__logo}
@@ -44,40 +53,43 @@ export const Plan = () => {
               <p className={style.plan__price}>
                 ${prices[plan.name]}/{prices.term}
               </p>
-              {currentTerm === subscriptionTerm.yearly && (
+              {currentSubscriptionTerm === subscriptionTerm.yearly && (
                 <p className={style.plan__discount}>2 months free</p>
               )}
             </div>
           </div>
         ))}
       </div>
-      <div className={style.billing__container}>
+      <div className={style.subscription__container}>
         <span
-          className={`${style.billing__monthly} ${
-            currentTerm === subscriptionTerm.monthly
-              ? style.billing__selected
+          className={`${style.subscription__monthly} ${
+            currentSubscriptionTerm === subscriptionTerm.monthly
+              ? style.subscription__selected
               : ""
           }`}
         >
           Monthly
         </span>
-        <div className={style.billing__sliderContainer}>
+        <div className={style.subscription__sliderContainer}>
           <input
-            className={style.billing__slider}
+            className={style.subscription__slider}
             type="checkbox"
+            checked={currentSubscriptionTerm !== subscriptionTerm.monthly}
             onChange={(e) => {
               const checked = e.target.checked;
               // Set to monthly
-              if (!checked) setCurrentTerm(subscriptionTerm.monthly);
+              if (!checked)
+                dispatch(setCurrentSubscriptionTerm(subscriptionTerm.monthly));
               // Set to yearly
-              else setCurrentTerm(subscriptionTerm.yearly);
+              else
+                dispatch(setCurrentSubscriptionTerm(subscriptionTerm.yearly));
             }}
           />
         </div>
         <span
-          className={`${style.billing__yearly} ${
-            currentTerm === subscriptionTerm.yearly
-              ? style.billing__selected
+          className={`${style.subscription__yearly} ${
+            currentSubscriptionTerm === subscriptionTerm.yearly
+              ? style.subscription__selected
               : ""
           }`}
         >

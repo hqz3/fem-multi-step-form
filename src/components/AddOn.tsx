@@ -8,8 +8,8 @@ import {
 // Redux selectors
 import { selectCurrentPlan } from "../store";
 
-import { generateSubscriptionPrice } from "../utils/generateSubscriptionPrice";
 import { addOnName } from "../utils/addOnName";
+import { generateSubscriptionPrice } from "../utils/generateSubscriptionPrice";
 import style from "../styles/AddOn.module.css";
 
 export const AddOn = () => {
@@ -56,11 +56,15 @@ export const AddOn = () => {
           className={`${style.addOn__container} ${
             addOn.selected ? style.addOn__containerSelected : ""
           }`}
-          onClick={(e) => {
+          onClick={() => {
             dispatch(addOn.action());
           }}
         >
-          <input type="checkbox" checked={addOn.selected} />
+          <input
+            type="checkbox"
+            checked={addOn.selected}
+            onChange={() => undefined}
+          />
           <div className={style.addOn__details}>
             <h5 className={style.addOn__name}>{addOn.name}</h5>
             <p className={style.addOn__description}>{addOn.description}</p>

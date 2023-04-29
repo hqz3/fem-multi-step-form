@@ -1,32 +1,45 @@
-import { planName } from "./planName";
-import { addOnName } from "./addOnName";
+import { PLAN, PlanTypes } from "./planName";
+import { ADD_ON, AddOnTypes } from "./addOnName";
 
-export const subscriptionTerm = {
+export const SUBSCRIPTION_TERM = {
   monthly: "Monthly",
   yearly: "Yearly",
-};
+} as const;
 
-export const generateSubscriptionPrice = (term: string) => {
+type Keys = keyof typeof SUBSCRIPTION_TERM;
+export type SubcriptionTermTypes = (typeof SUBSCRIPTION_TERM)[Keys];
+
+type Plan = Record<PlanTypes, number>;
+type AddOn = Record<AddOnTypes, number>;
+
+export type SubcriptionPriceType = {
+  term: string;
+} & Plan &
+  AddOn;
+
+export const generateSubscriptionPrice = (
+  term: string
+): SubcriptionPriceType => {
   switch (term) {
-    case subscriptionTerm.monthly:
+    case SUBSCRIPTION_TERM.monthly:
       return {
         term: "mo",
-        [planName.arcade]: 9,
-        [planName.advanced]: 12,
-        [planName.pro]: 15,
-        [addOnName.onlineService]: 1,
-        [addOnName.largerStorage]: 2,
-        [addOnName.customProfile]: 2,
+        [PLAN.arcade]: 9,
+        [PLAN.advanced]: 12,
+        [PLAN.pro]: 15,
+        [ADD_ON.onlineService]: 1,
+        [ADD_ON.largerStorage]: 2,
+        [ADD_ON.customProfile]: 2,
       };
     default:
       return {
         term: "yr",
-        [planName.arcade]: 90,
-        [planName.advanced]: 120,
-        [planName.pro]: 150,
-        [addOnName.onlineService]: 10,
-        [addOnName.largerStorage]: 20,
-        [addOnName.customProfile]: 20,
+        [PLAN.arcade]: 90,
+        [PLAN.advanced]: 120,
+        [PLAN.pro]: 150,
+        [ADD_ON.onlineService]: 10,
+        [ADD_ON.largerStorage]: 20,
+        [ADD_ON.customProfile]: 20,
       };
   }
 };

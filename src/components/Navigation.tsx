@@ -31,9 +31,10 @@ export const Navigation = () => {
     dispatch(incrementStep());
   };
 
+  if (currentStep == 4) return <></>;
   return (
     <nav className={style.navigation__container}>
-      {currentStep !== (0 || 4) && (
+      {currentStep !== 0 && (
         <a
           className={style.navigation__back}
           href="#"

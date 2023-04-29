@@ -8,7 +8,7 @@ interface ReturnInterface {
   message: string;
 }
 
-export const INFO_LABEL = {
+export const FORM_LABEL = {
   name: "Name",
   email: "Email Address",
   phone: "Phone Number",

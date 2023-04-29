@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice, isAction } from "@reduxjs/toolkit";
 
 interface FormError {
   label: null | string;
@@ -38,7 +38,11 @@ export const formSlice = createSlice({
     setError: (state, action: PayloadAction<FormError>) => {
       state.error = action.payload;
     },
+    resetError: (state) => {
+      state.error = { label: null, message: "" };
+    },
   },
 });
 
-export const { setName, setEmail, setPhone, setError } = formSlice.actions;
+export const { setName, setEmail, setPhone, setError, resetError } =
+  formSlice.actions;

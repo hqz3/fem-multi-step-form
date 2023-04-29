@@ -1,41 +1,41 @@
-import { infoFormLabels } from "../utils/validateInfoForm";
+import { useDispatch, useSelector } from "react-redux";
+// Redux actions
 import {
   setName,
   setEmail,
   setPhone,
-  setError,
+  resetError,
 } from "../store/features/formSlice";
+// Redux selectors
+import { selectForm } from "../store";
 
-import { useDispatch, useSelector } from "react-redux";
-import { selectForm, store } from "../store";
-
+import { FORM_LABEL } from "../utils/validateInfoForm";
 import style from "../styles/Info.module.css";
 
 export const Info = () => {
   const dispatch = useDispatch();
 
   const { name, email, phone, error } = useSelector(selectForm);
-  console.log("Info", store.getState().form);
 
   const inputs = [
     {
       value: name,
+      label: FORM_LABEL.name,
       action: setName,
-      label: infoFormLabels.name,
       type: "text",
       placeholder: "e.g. Stephen King",
     },
     {
       value: email,
+      label: FORM_LABEL.email,
       action: setEmail,
-      label: infoFormLabels.email,
       type: "email",
       placeholder: "e.g. stephenking@lorem.com",
     },
     {
       value: phone,
+      label: FORM_LABEL.phone,
       action: setPhone,
-      label: infoFormLabels.phone,
       type: "tel",
       placeholder: "e.g. +1 234 567 890",
     },
@@ -63,10 +63,7 @@ export const Info = () => {
               value={input.value}
               onChange={(e) => {
                 dispatch(input.action(e.target.value));
-
-                if (error.label === input.label) {
-                  dispatch(setError({ label: null, message: "" }));
-                }
+                if (error.label === input.label) dispatch(resetError());
               }}
             />
           </label>

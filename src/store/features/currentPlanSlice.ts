@@ -1,18 +1,21 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { subscriptionTerm } from "../../utils/generateSubscriptionPrice";
-import { planName } from "../../utils/planName";
+import {
+  SUBSCRIPTION_TERM,
+  SubcriptionTermTypes,
+} from "../../utils/generateSubscriptionPrice";
+import { PLAN, PlanTypes } from "../../utils/planName";
 
 type Plan = {
-  currentPlan: string;
-  currentSubscriptionTerm: string;
+  currentPlan: PlanTypes;
+  currentSubscriptionTerm: SubcriptionTermTypes;
   onlineService: boolean;
   largerStorage: boolean;
   customProfile: boolean;
 };
 
 const initialState: Plan = {
-  currentPlan: planName.arcade,
-  currentSubscriptionTerm: subscriptionTerm.monthly,
+  currentPlan: PLAN.arcade,
+  currentSubscriptionTerm: SUBSCRIPTION_TERM.monthly,
   onlineService: false,
   largerStorage: false,
   customProfile: false,
@@ -22,10 +25,13 @@ export const currentPlanSlice = createSlice({
   name: "currentPlan",
   initialState,
   reducers: {
-    setCurrentPlan: (state, action: PayloadAction<string>) => {
+    setCurrentPlan: (state, action: PayloadAction<PlanTypes>) => {
       state.currentPlan = action.payload;
     },
-    setCurrentSubscriptionTerm: (state, action: PayloadAction<string>) => {
+    setCurrentSubscriptionTerm: (
+      state,
+      action: PayloadAction<SubcriptionTermTypes>
+    ) => {
       state.currentSubscriptionTerm = action.payload;
     },
     toggleOnlineService: (state) => {

@@ -1,11 +1,8 @@
-export interface PlanNameInterface {
-  arcade: string;
-  advanced: string;
-  pro: string;
-}
-
-export const planName: PlanNameInterface = {
+export const PLAN = {
   arcade: "Arcade",
   advanced: "Advanced",
   pro: "Pro",
-};
+} as const;
+
+type Keys = keyof typeof PLAN;
+export type PlanTypes = (typeof PLAN)[Keys];

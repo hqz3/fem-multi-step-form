@@ -84,13 +84,14 @@
 
   position: absolute;
   top: 0;
-
-  transform: scale(0.75);
+  left: 0;
+  scale: 0.75;
+  transition: left 0.25s;
   width: 1.5rem;
 }
 
 .subscription__slider:checked::before {
-  right: 0;
+  left: 50%;
 }
 
 .subscription__selected {

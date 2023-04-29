@@ -5,16 +5,16 @@
 
   display: flex;
   align-items: center;
-  gap: 1rem;
 
-  height: 4.25rem;
+  gap: 2rem;
+  height: 5rem;
   margin-top: 1rem;
   padding: 1rem;
   transition: background-color 0.25s;
 }
 
 .addOn__container:first-of-type {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .addOn__container:hover {
@@ -29,8 +29,8 @@
 .addOn__container input[type="checkbox"] {
   accent-color: var(--purplish-blue);
   cursor: pointer;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .addOn__details {
@@ -41,6 +41,7 @@
 }
 
 .addOn__name {
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -51,5 +52,4 @@
 
 .addOn__price {
   color: var(--purplish-blue);
-  font-size: 0.8rem;
 }

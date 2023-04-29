@@ -7,9 +7,9 @@ import {
 // Redux selectors
 import { selectCurrentPlan } from "../store";
 
-import { planName } from "../utils/planName";
+import { PLAN } from "../utils/planName";
 import {
-  subscriptionTerm,
+  SUBSCRIPTION_TERM,
   generateSubscriptionPrice,
 } from "../utils/generateSubscriptionPrice";
 
@@ -21,11 +21,20 @@ export const Plan = () => {
     useSelector(selectCurrentPlan);
 
   const prices = generateSubscriptionPrice(currentSubscriptionTerm);
+  const term = prices.term;
 
   const plans = [
-    { name: planName.arcade, imgSrc: "icon-arcade.svg" },
-    { name: planName.advanced, imgSrc: "icon-advanced.svg" },
-    { name: planName.pro, imgSrc: "icon-pro.svg" },
+    {
+      name: PLAN.arcade,
+      price: prices[PLAN.arcade],
+      imgSrc: "icon-arcade.svg",
+    },
+    {
+      name: PLAN.advanced,
+      price: prices[PLAN.advanced],
+      imgSrc: "icon-advanced.svg",
+    },
+    { name: PLAN.pro, price: prices[PLAN.pro], imgSrc: "icon-pro.svg" },
   ];
 
   return (
@@ -51,9 +60,9 @@ export const Plan = () => {
             <div className={style.plan__details}>
               <h4 className={style.plan__title}>{plan.name}</h4>
               <p className={style.plan__price}>
-                ${prices[plan.name]}/{prices.term}
+                ${plan.price}/{term}
               </p>
-              {currentSubscriptionTerm === subscriptionTerm.yearly && (
+              {currentSubscriptionTerm === SUBSCRIPTION_TERM.yearly && (
                 <p className={style.plan__discount}>2 months free</p>
               )}
             </div>
@@ -63,7 +72,7 @@ export const Plan = () => {
       <div className={style.subscription__container}>
         <span
           className={`${style.subscription__monthly} ${
-            currentSubscriptionTerm === subscriptionTerm.monthly
+            currentSubscriptionTerm === SUBSCRIPTION_TERM.monthly
               ? style.subscription__selected
               : ""
           }`}
@@ -74,21 +83,21 @@ export const Plan = () => {
           <input
             className={style.subscription__slider}
             type="checkbox"
-            checked={currentSubscriptionTerm !== subscriptionTerm.monthly}
+            checked={currentSubscriptionTerm !== SUBSCRIPTION_TERM.monthly}
             onChange={(e) => {
               const checked = e.target.checked;
               // Set to monthly
               if (!checked)
-                dispatch(setCurrentSubscriptionTerm(subscriptionTerm.monthly));
+                dispatch(setCurrentSubscriptionTerm(SUBSCRIPTION_TERM.monthly));
               // Set to yearly
               else
-                dispatch(setCurrentSubscriptionTerm(subscriptionTerm.yearly));
+                dispatch(setCurrentSubscriptionTerm(SUBSCRIPTION_TERM.yearly));
             }}
           />
         </div>
         <span
           className={`${style.subscription__yearly} ${
-            currentSubscriptionTerm === subscriptionTerm.yearly
+            currentSubscriptionTerm === SUBSCRIPTION_TERM.yearly
               ? style.subscription__selected
               : ""
           }`}

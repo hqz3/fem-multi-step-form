@@ -8,8 +8,8 @@ import {
 // Redux selectors
 import { selectCurrentPlan } from "../store";
 
-import { addOnName } from "../utils/addOnName";
 import { generateSubscriptionPrice } from "../utils/generateSubscriptionPrice";
+import { ADD_ON } from "../utils/addOnName";
 import style from "../styles/AddOn.module.css";
 
 export const AddOn = () => {
@@ -22,24 +22,28 @@ export const AddOn = () => {
   } = useSelector(selectCurrentPlan);
 
   const prices = generateSubscriptionPrice(currentSubscriptionTerm);
+  const term = prices.term;
 
   const addOns = [
     {
-      name: addOnName.onlineService,
+      name: ADD_ON.onlineService,
       selected: onlineService,
       action: toggleOnlineService,
+      price: prices[ADD_ON.onlineService],
       description: "Access to multiplayer games",
     },
     {
-      name: addOnName.largerStorage,
+      name: ADD_ON.largerStorage,
       selected: largerStorage,
       action: toggleLargerStorage,
+      price: prices[ADD_ON.largerStorage],
       description: "Extra 1TB of cloud save",
     },
     {
-      name: addOnName.customProfile,
+      name: ADD_ON.customProfile,
       selected: customProfile,
       action: toggleCustomProfile,
+      price: prices[ADD_ON.customProfile],
       description: "Custom theme on your profile",
     },
   ];
@@ -70,7 +74,7 @@ export const AddOn = () => {
             <p className={style.addOn__description}>{addOn.description}</p>
           </div>
           <p className={style.addOn__price}>
-            {`+$${prices[addOn.name]}/${prices.term}`}
+            +${addOn.price}/{term}
           </p>
         </div>
       ))}

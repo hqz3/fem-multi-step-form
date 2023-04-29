@@ -8,11 +8,11 @@ interface ReturnInterface {
   message: string;
 }
 
-export const infoFormLabels = {
+export const INFO_LABEL = {
   name: "Name",
   email: "Email Address",
   phone: "Phone Number",
-};
+} as const;
 
 export const validateInfoForm = (
   name: string,
@@ -20,9 +20,9 @@ export const validateInfoForm = (
   phone: string
 ): ReturnInterface => {
   try {
-    validateName(infoFormLabels.name, name);
-    validateEmail(infoFormLabels.email, email);
-    validatePhone(infoFormLabels.phone, phone);
+    validateName(name);
+    validateEmail(email);
+    validatePhone(phone);
   } catch (error) {
     if (error instanceof FormError) {
       const { label, message } = error;

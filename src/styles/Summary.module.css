@@ -1,0 +1,68 @@
+.summary {
+  background-color: var(--magnolia);
+  border-radius: 0.25rem;
+  color: var(--cool-gray);
+  font-size: 0.9rem;
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+}
+
+.plan__container {
+  border-bottom: 1px solid var(--light-gray);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.plan__name {
+  color: var(--marine-blue);
+  font-weight: 500;
+}
+
+.plan__change {
+  color: var(--cool-gray);
+}
+
+.plan__change:hover {
+  filter: brightness(0.8);
+}
+
+.plan__price {
+  color: var(--marine-blue);
+  font-weight: 600;
+}
+
+.addOns__container {
+  background-color: var(--magnolia);
+}
+
+.addOn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 1.5rem;
+}
+
+.addOn__price {
+  color: var(--marine-blue);
+}
+
+.total {
+  color: var(--cool-gray);
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1.5rem;
+}
+
+.total__price {
+  color: var(--purplish-blue);
+  font-size: 1.1rem;
+  font-weight: 600;
+}

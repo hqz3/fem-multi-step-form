@@ -1,5 +1,5 @@
-import { PLAN, PlanTypes } from "./planName";
-import { ADD_ON, AddOnTypes } from "./addOnName";
+import { PLAN, PlanType } from "./planName";
+import { ADD_ON, AddOnType } from "./addOnName";
 
 export const SUBSCRIPTION_TERM = {
   monthly: "Monthly",
@@ -9,8 +9,8 @@ export const SUBSCRIPTION_TERM = {
 type Keys = keyof typeof SUBSCRIPTION_TERM;
 export type SubcriptionTermTypes = (typeof SUBSCRIPTION_TERM)[Keys];
 
-type Plan = Record<PlanTypes, number>;
-type AddOn = Record<AddOnTypes, number>;
+type Plan = Record<PlanType, number>;
+type AddOn = Record<AddOnType, number>;
 
 export type SubcriptionPriceType = {
   term: string;

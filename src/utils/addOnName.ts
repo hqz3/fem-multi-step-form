@@ -5,4 +5,4 @@ export const ADD_ON = {
 } as const;
 
 type Keys = keyof typeof ADD_ON;
-export type AddOnTypes = (typeof ADD_ON)[Keys];
+export type AddOnType = (typeof ADD_ON)[Keys];

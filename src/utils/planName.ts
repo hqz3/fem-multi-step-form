@@ -5,4 +5,4 @@ export const PLAN = {
 } as const;
 
 type Keys = keyof typeof PLAN;
-export type PlanTypes = (typeof PLAN)[Keys];
+export type PlanType = (typeof PLAN)[Keys];

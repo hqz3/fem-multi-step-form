@@ -3,10 +3,10 @@ import {
   SUBSCRIPTION_TERM,
   SubcriptionTermTypes,
 } from "../../utils/generateSubscriptionPrice";
-import { PLAN, PlanTypes } from "../../utils/planName";
+import { PLAN, PlanType } from "../../utils/planName";
 
 type Plan = {
-  currentPlan: PlanTypes;
+  currentPlan: PlanType;
   currentSubscriptionTerm: SubcriptionTermTypes;
   onlineService: boolean;
   largerStorage: boolean;
@@ -25,7 +25,7 @@ export const currentPlanSlice = createSlice({
   name: "currentPlan",
   initialState,
   reducers: {
-    setCurrentPlan: (state, action: PayloadAction<PlanTypes>) => {
+    setCurrentPlan: (state, action: PayloadAction<PlanType>) => {
       state.currentPlan = action.payload;
     },
     setCurrentSubscriptionTerm: (

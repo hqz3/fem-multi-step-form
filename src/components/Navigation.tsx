@@ -33,7 +33,7 @@ export const Navigation = () => {
 
   return (
     <nav className={style.navigation__container}>
-      {currentStep !== 0 && (
+      {currentStep !== (0 || 4) && (
         <a
           className={style.navigation__back}
           href="#"

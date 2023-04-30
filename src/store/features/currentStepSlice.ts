@@ -4,7 +4,7 @@ type Step = {
   currentStep: number;
 };
 
-const initialState: Step = { currentStep: 1 };
+const initialState: Step = { currentStep: 0 };
 
 export const currentStepSlice = createSlice({
   name: "currentStep",

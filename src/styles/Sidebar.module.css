@@ -1,5 +1,5 @@
 .steps__container {
-  background-image: url("images/bg-sidebar-desktop.svg");
+  background-image: url("../../public/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   color: var(--white);
 
@@ -74,7 +74,7 @@
 
 @media (max-width: 768px) {
   .steps__container {
-    background-image: url("images/bg-sidebar-mobile.svg");
+    background-image: url("../../public/images/bg-sidebar-mobile.svg");
     background-position: center;
     background-size: cover;
 

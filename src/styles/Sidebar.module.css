@@ -54,6 +54,7 @@
 
 .step__selected {
   color: var(--marine-blue);
+  transition: color 0.5s ease-out;
 }
 
 .step__selected::before {

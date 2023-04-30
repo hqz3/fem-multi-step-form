@@ -54,7 +54,7 @@ export const Plan = () => {
           >
             <img
               className={style.plan__logo}
-              src={`../src/assets/images/${plan.imgSrc}`}
+              src={`../assets/images/${plan.imgSrc}`}
               alt={plan.name}
             />
             <div className={style.plan__details}>

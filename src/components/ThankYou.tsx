@@ -4,7 +4,7 @@ export const ThankYou = () => {
   return (
     <section className={style.thankYou__container}>
       <img
-        src="src/assets/images/icon-thank-you.svg"
+        src="../assets/images/icon-thank-you.svg"
         className={style.thankYou__image}
       ></img>
       <h1>Thank you!</h1>

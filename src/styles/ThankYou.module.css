@@ -1,0 +1,26 @@
+.thankYou__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 1.8rem;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.thankYou__container h1 {
+  font-size: 2rem;
+}
+
+.thankYou__container p {
+  color: var(--cool-gray);
+  line-height: 1.6rem;
+}
+
+@media (max-width: 768px) {
+  .thankYou__container {
+    padding: 2rem;
+  }
+}

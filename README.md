@@ -31,10 +31,11 @@ Users should be able to:
 ### Screenshot
 
 #### Mobile
-![fem-multi-step-form netlify app (mobile)](https://user-images.githubusercontent.com/68667158/235401948-ef4596cb-e6e9-40d1-b163-6625c5316729.png)
+![fem-multi-step-form netlify app_(iPhone SE)](https://user-images.githubusercontent.com/68667158/235542839-80c50ad5-706b-4fdf-bc77-1477d80a5b02.png)
 
 #### Desktop
-![fem-multi-step-form netlify app_](https://user-images.githubusercontent.com/68667158/235459655-0ff52f15-1ce0-4c73-8870-e022e238dad2.png)
+![fem-multi-step-form netlify app_(Nest Hub Max)](https://user-images.githubusercontent.com/68667158/235542920-ef82f3a0-d01a-46c1-a359-31b22bfd7630.png)
+
 
 ### Links
 

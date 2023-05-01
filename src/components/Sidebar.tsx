@@ -22,15 +22,15 @@ export const Sidebar = () => {
       {steps.map((step, index) => {
         return (
           <div className={style.step__container} key={step.number}>
-            <p
+            <div
               className={`${style.step__number} ${
                 index === currentStep ? style.step__selected : ""
               }`}
             >
               {step.number}
-            </p>
+            </div>
             <p className={style.step__title}>{step.title}</p>
-            <p className={style.step__description}>{step.description}</p>
+            <h2 className={style.step__description}>{step.description}</h2>
           </div>
         );
       })}

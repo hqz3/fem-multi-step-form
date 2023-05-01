@@ -34,7 +34,7 @@ Users should be able to:
 ![fem-multi-step-form netlify app (mobile)](https://user-images.githubusercontent.com/68667158/235401948-ef4596cb-e6e9-40d1-b163-6625c5316729.png)
 
 #### Desktop
-![fem-multi-step-form netlify app_](https://user-images.githubusercontent.com/68667158/235401987-c4f3b81e-7c29-4ae1-be80-19b3016d0cae.png)
+![fem-multi-step-form netlify app_](https://user-images.githubusercontent.com/68667158/235459655-0ff52f15-1ce0-4c73-8870-e022e238dad2.png)
 
 ### Links
 

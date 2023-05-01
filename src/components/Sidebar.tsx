@@ -18,22 +18,22 @@ export const Sidebar = () => {
   ];
 
   return (
-    <div className={style.steps__container}>
+    <section className={style.steps__container}>
       {steps.map((step, index) => {
         return (
-          <ol className={style.step__container} key={step.number}>
-            <li
+          <div className={style.step__container} key={step.number}>
+            <p
               className={`${style.step__number} ${
                 index === currentStep ? style.step__selected : ""
               }`}
             >
               {step.number}
-            </li>
+            </p>
             <p className={style.step__title}>{step.title}</p>
             <p className={style.step__description}>{step.description}</p>
-          </ol>
+          </div>
         );
       })}
-    </div>
+    </section>
   );
 };

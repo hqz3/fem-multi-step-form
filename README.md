@@ -31,12 +31,14 @@ Users should be able to:
 ### Screenshot
 
 #### Mobile
+![fem-multi-step-form netlify app (mobile)](https://user-images.githubusercontent.com/68667158/235401948-ef4596cb-e6e9-40d1-b163-6625c5316729.png)
 
 #### Desktop
+![fem-multi-step-form netlify app_](https://user-images.githubusercontent.com/68667158/235401987-c4f3b81e-7c29-4ae1-be80-19b3016d0cae.png)
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/mobile-responsive-multistep-form-w-react-typescript-and-redux-toolkit-XOFWjlMD-T)
 - [Live Site URL](https://fem-multi-step-form.netlify.app/)
 
 ## My process
